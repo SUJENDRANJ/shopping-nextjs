@@ -27,8 +27,7 @@ import { LogOut, User } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-
-const name = "";
+import { ModeToggle } from "./ToggleTheme";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -84,6 +83,7 @@ export function AuthDialog() {
     return (
       <div className="flex items-center gap-3 p-2 border rounded-lg shadow-sm">
         {/* Profile Image (Only for GitHub users) */}
+
         {session?.user?.image && (
           <Image
             src={session.user.image}
