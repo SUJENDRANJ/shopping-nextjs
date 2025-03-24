@@ -28,6 +28,8 @@ import { useAuth } from "../context/AuthContext";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
+const name = "";
+
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -94,7 +96,7 @@ export function AuthDialog() {
         {/* User Info */}
         <div className="flex flex-col">
           <span className="text-sm font-medium">
-            {loggedInUser?.name || loggedInUser?.email}
+            {(loggedInUser as any)?.name || loggedInUser?.email}
           </span>
           {/* {loggedInUser?.email && (
             <span className="text-xs text-gray-500">{loggedInUser.email}</span>
